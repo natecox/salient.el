@@ -21,8 +21,10 @@
 (eval-when-compile
   (require 'use-package))
 
+(setq load-prefer-newer t)
+
 (use-package salient
-  :load-path "salient/")
+  :load-path ".")
 
 (let ((local-config (concat user-emacs-directory "local-config.el")))
   (if (file-readable-p local-config) (load-file local-config)))

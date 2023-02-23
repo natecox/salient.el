@@ -24,8 +24,6 @@
 
 ;;; Code:
 
-(setq load-prefer-newer t)
-
 (defvar salient-dir (file-name-directory load-file-name)
   "Root directory for salient.")
 
