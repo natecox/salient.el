@@ -26,6 +26,9 @@
 
 ;;;; Version control
 
+(use-package emacs
+  :custom (setq project-vc-merge-submodules nil))
+
 (use-package magit
   ;; https://github.com/magit/magit
   :ensure t
