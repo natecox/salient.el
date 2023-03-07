@@ -74,7 +74,7 @@
 
   :config
   (custom-set-faces
-   '(default ((t (:family "Comic Mono" :height 140)))))
+   '(default ((t (:family "Jetbrains Mono" :height 140)))))
 
   ;; If emacs has been built with system appearance detection
   ;; add a hook to change the theme to match the system

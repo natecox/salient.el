@@ -107,6 +107,7 @@
   (use-short-answers t)
   (user-full-name "Nathan Cox")
   (user-mail-address "nate@natecox.dev")
+  (vc-follow-symlinks t)
   (warning-minimum-level :emergency)
   (window-min-height 1)
 

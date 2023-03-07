@@ -41,6 +41,7 @@
 (require 'salient-orgmode)
 (require 'salient-theme)
 (require 'salient-vc)
+(require 'salient-pbk)
 
 (require 'salient-prog)
 
