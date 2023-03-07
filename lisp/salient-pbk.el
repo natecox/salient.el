@@ -32,7 +32,7 @@
   :bind ("s-r" . 'org-roam-hydra/body)
 
   :custom
-  (org-roam-directory "~/org/slips/")
+  (org-roam-directory "~/org/roam/")
   (org-roam-graph-exclude-matcher '("dailies"))
   (org-roam-dailies-capture-templates
    '(("d" "default" entry "* %?"
@@ -45,17 +45,15 @@
   ((:title "Org Roam" :quit-key "q" :exit t)
    ("Slips"
     (("f" org-roam-node-find "Find or create topic")
-     ("i" org-roam-insert-node "Insert slip")
-     ("I" org-roam-insert-immediate "Insert slip (immediately)"))
+     ("i" org-roam-node-insert "Insert slip"))
     "Dailies"
     (("d" org-roam-dailies-capture-today "Capture daily note")
-     ("D" org-roam-dailies-goto-today "Visit today's slip")
-     ("Y" org-roam-dailies-goto-yesterday "Visit yesterday's slip"))
+     ("D" (lambda () (interactive) (org-roam-dailies-goto-today "d")) "Visit today's slip")
+     ("Y" (lambda () (interactive) (org-roam-dailies-goto-yesterday "d")) "Visit yesterday's slip"))
     "Graph"
     (("g" org-roam-graph "Open SVG graph"))
     "Toggle"
     (("B" org-roam-buffer-toggle "Buffer")
      ("L" org-roam "Backlinks")))))
-
 (provide 'salient-pbk)
 ;;; salient-pbk.el ends here

@@ -28,10 +28,14 @@
 
 (use-package project
   :bind (:map project-prefix-map
-              ("m" . magit-project-status)
-              ("v" . vterm))
+              ("m" . #'magit-project-status)
+              ("v" . #'vterm))
+
+  :custom
+  (project-vc-merge-submodules nil)
+
   :config
-  (push '(magit "Magit Status" ?m) project-switch-commands)
+  (push '(magit-project-status "Magit Status" ?m) project-switch-commands)
   (push '(vterm "vterm" ?v) project-switch-commands))
 
 ;; Code analysis tools

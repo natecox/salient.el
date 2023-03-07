@@ -34,9 +34,13 @@
   :ensure t
   :bind (("C-c g s" . magit-status))
   :hook ((git-commit-mode . (lambda () (set-fill-column 72))))
-  :config
-  (setq git-commit-style-convention-checks '(non-empty-second-line overlong-summary-line)
-        git-commit-summary-max-length 50))
+
+  :custom
+  (git-commit-style-convention-checks '(non-empty-second-line overlong-summary-line))
+  (git-commit-summary-max-length 50))
+
+(use-package magit-extras
+  :after magit)
 
 (use-package forge
   ;; https://github.com/magit/forge
