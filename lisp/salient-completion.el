@@ -28,18 +28,6 @@
   :ensure t
   :bind ("C-x b" . consult-buffer))
 
-
-(use-package corfu
-  ;; https://github.com/minad/corfu
-
-  :ensure t
-
-  :custom
-  (corfu-cycle t)
-
-  :init
-  (global-corfu-mode))
-
 (use-package embark
   :ensure t
   :bind (("C-." . embark-act)
@@ -75,6 +63,21 @@
   :ensure t
   :init (vertico-mode))
 
+(use-package company
+  :hook ((prog-mode) . company-mode))
+
+(use-package yasnippet
+  ;; :ensure t
+  :load-path "~/src/natecox/yasnippet-snippets"
+  :hook ((prog-mode . yas-minor-mode)))
+
+(use-package yasnippet-snippets
+  :ensure t
+  :after yasnippet)
+
+(use-package consult-yasnippet
+  :ensure t
+  :after (yasnippet consult))
 
 (provide 'salient-completion)
 ;;; salient-completion.el ends here

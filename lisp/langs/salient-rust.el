@@ -24,12 +24,10 @@
 
 ;;; Code:
 
-(use-package rustic
-  :ensure t
-  :custom
-  (rustic-format-on-save t)
-  (rustic-lsp-client 'eglot))
-
+(use-package rust-ts-mode
+  :if (featurep 'treesit)
+  :mode ("\\.rs\\'" . rust-ts-mode)
+  :hook (rust-ts-mode . eglot-ensure))
 
 (provide 'salient-rust)
 ;;; salient-rust.el ends here

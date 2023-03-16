@@ -29,14 +29,14 @@
 (use-package project
   :bind (:map project-prefix-map
               ("m" . #'magit-project-status)
-              ("v" . #'vterm))
+              ("v" . #'multi-vterm-project))
 
   :custom
   (project-vc-merge-submodules nil)
 
   :config
   (push '(magit-project-status "Magit Status" ?m) project-switch-commands)
-  (push '(vterm "vterm" ?v) project-switch-commands))
+  (push '(vterm "multi-vterm-project" ?v) project-switch-commands))
 
 ;; Code analysis tools
 
@@ -63,20 +63,20 @@
 
 ;; Tree sitter
 
-(use-package tree-sitter
-  ;; https://emacs-tree-sitter.github.io
-  ;; https://github.com/emacs-tree-sitter/elisp-tree-sitter
-  :ensure t
-  :diminish
-  :hook ((ruby-mode . tree-sitter-hl-mode)
-         (rustic-mode . tree-sitter-hl-mode)
-         (haskell-mode . tree-sitter-hl-mode))
-  :config (global-tree-sitter-mode))
+;; (use-package tree-sitter
+;;   ;; https://emacs-tree-sitter.github.io
+;;   ;; https://github.com/emacs-tree-sitter/elisp-tree-sitter
+;;   :ensure t
+;;   :diminish
+;;   :hook ((ruby-mode . tree-sitter-hl-mode)
+;;          (rustic-mode . tree-sitter-hl-mode)
+;;          (haskell-mode . tree-sitter-hl-mode))
+;;   :config (global-tree-sitter-mode))
 
-(use-package tree-sitter-langs
-  ;; https://github.com/emacs-tree-sitter/tree-sitter-langs
-  :ensure t
-  :after tree-sitter)
+;; (use-package tree-sitter-langs
+;;   ;; https://github.com/emacs-tree-sitter/tree-sitter-langs
+;;   :ensure t
+;;   :after tree-sitter)
 
 (use-package eglot
   ;; https://github.com/joaotavora/eglot
@@ -88,7 +88,6 @@
   :ensure t
   :custom (direnv-always-show-summary nil)
   :config (direnv-mode))
-
 
 (provide 'salient-prog)
 ;;; salient-prog.el ends here

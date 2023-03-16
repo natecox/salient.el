@@ -1,4 +1,4 @@
-;;; salient-pbk.el --- Personal Knowledge Base, etc  -*- lexical-binding: t; -*-
+;;; salient-pkb.el --- Personal Knowledge Base, etc  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2023  Nathan Cox
 
@@ -36,8 +36,6 @@
   (org-roam-graph-exclude-matcher '("dailies"))
   (org-roam-dailies-capture-templates
    '(("d" "default" entry "* %?"
-      :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>"))
-     ("c" "clocked" entry "* %?"
       :target (file+head "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>")
       :clock-in)))
 
@@ -48,12 +46,18 @@
      ("i" org-roam-node-insert "Insert slip"))
     "Dailies"
     (("d" org-roam-dailies-capture-today "Capture daily note")
-     ("D" (lambda () (interactive) (org-roam-dailies-goto-today "d")) "Visit today's slip")
-     ("Y" (lambda () (interactive) (org-roam-dailies-goto-yesterday "d")) "Visit yesterday's slip"))
+     ("y" org-roam-dailies-capture-yesterday "Capture daily note (yesterday)")
+     ("t" org-roam-dailies-capture-tomorrow "Capture daily note (tomorrow)")
+     ("c" org-roam-dailies-capture-date "Select a date to capture")
+     ("D" org-roam-dailies-goto-today "Visit today's slip")
+     ("Y" org-roam-dailies-goto-yesterday "Visit daily slip (yesterday)")
+     ("T" org-roam-dailies-goto-tomorrow "Visit daily slip (tomorrow)")
+     ("C" org-roam-dailies-goto-date "Select a date to visit"))
     "Graph"
     (("g" org-roam-graph "Open SVG graph"))
     "Toggle"
     (("B" org-roam-buffer-toggle "Buffer")
      ("L" org-roam "Backlinks")))))
-(provide 'salient-pbk)
-;;; salient-pbk.el ends here
+
+(provide 'salient-pkb)
+;;; salient-pkb.el ends here
