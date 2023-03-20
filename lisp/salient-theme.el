@@ -76,17 +76,17 @@
   (custom-set-faces
    '(default ((t (:family "Jetbrains Mono" :height 140)))))
 
-  ;; If emacs has been built with system appearance detection
-  ;; add a hook to change the theme to match the system
-  (if (boundp 'ns-system-appearance-change-functions)
-      (add-hook 'ns-system-appearance-change-functions
-                (lambda (appearance)
-                  (mapc #'disable-theme custom-enabled-themes)
-                  (pcase appearance
-                    ('light (modus-themes-select 'modus-operandi))
-                    ('dark (modus-themes-select 'modus-vivendi)))))
-    (modus-themes-select 'modus-operandi)))
+  :init
+  (modus-themes-select 'modus-operandi))
 
+(defun my/apply-theme (appearance)
+  "Load theme, taking current system APPEARANCE into consideration."
+  (mapc #'disable-theme custom-enabled-themes)
+  (pcase appearance
+    ('light (modus-themes-select 'modus-operandi))
+    ('dark (modus-themes-select 'modus-vivendi))))
+
+(add-hook 'ns-system-appearance-change-functions #'my/apply-theme)
 
 (provide 'salient-theme)
 ;;; salient-theme.el ends here
